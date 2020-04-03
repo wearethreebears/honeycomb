@@ -1,0 +1,31 @@
+/*----------------------------------------------------------
+|
+|      BOOT FUNCTIONS
+|
+----------------------------------------------------------*/
+
+/*
+*
+* Get nested variables
+*
+*/
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+/*
+*
+* Strip number units
+*
+*/
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

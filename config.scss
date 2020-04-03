@@ -1,0 +1,70 @@
+$options: (
+    /*
+    *
+    * Set root font size, important for ems and rems
+    *
+    */
+    root-size: 16px, //Required
+
+    /*
+    *
+    * Set grid configuration
+    *
+    */
+    grid: ( //Required
+
+        //List breakpoints
+        breakpoints: (
+            desktop: (
+                prefix: 'd',
+                min-width: 80rem
+            )
+        ),
+
+        // List grid breakpoints
+        container: (
+            max-width: 93.75rem, //Required
+            min-width: 23.75rem, //Required
+        ),
+
+        //Set grid gutters
+        gutter: (
+            max-width: 2rem, //Required
+            min-width: 1.25rem, //Required
+        ),
+    ),
+
+    /*
+    *
+    * Set font configuration:
+    * The fonts object must exist but you are not required to populate it
+    *
+    */
+    fonts: (
+
+        title--large: (
+            font-family: sans-serif, //Required
+            font-weight: 800, //Required
+            max-size: 7.25rem, //Required
+            min-size: 2.2rem, //Required
+            max-line-height: 1em, //Required
+            min-line-height: 1em //Required
+        ),
+        
+    ),
+
+    /*
+    *
+    * Set gutter configuration:
+    * The gutters object must exist but you are not required to populate it
+    *
+    */
+    gutters: (
+
+        large: (
+            max-size: 6rem, //Required
+            min-size: 2rem, //Required
+        ),
+
+    )
+);

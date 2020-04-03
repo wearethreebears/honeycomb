@@ -1,0 +1,42 @@
+/*----------------------------------------------------------
+|
+|      SYSTEM FUNCTIONS
+|
+----------------------------------------------------------*/
+
+/*
+*
+* Get the fluid size
+*
+*/
+@function fluid-size($max-size, $min-size) {
+    @return calc(#{$min-size} + (#{strip-unit($max-size)} - #{strip-unit($min-size)}) * ((100vw - #{$container-min-width}) / (#{strip-unit($container-max-width)} - #{strip-unit($container-min-width)})));
+}
+
+
+/*----------------------------------------------------------
+|
+|      USER FUNCTIONS
+|
+----------------------------------------------------------*/
+
+/*
+*
+* Get gutter size
+*
+*/
+@function gutter($size) {
+    $max: map-deep-get($options, 'gutters', $size, 'max-size');
+    $min: map-deep-get($options, 'gutters', $size, 'min-size');
+    @return fluid-size($max, $min);
+}
+
+/*
+*
+* Get breakpoint
+*
+*/
+@function breakpoint($breakpoint) {
+    @return map-deep-get($options, 'grid', 'breakpoints', $breakpoint, 'min-width');
+}
+

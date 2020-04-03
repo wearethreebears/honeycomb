@@ -1,0 +1,39 @@
+@mixin system-fluid-gutter($max-gutter-size, $min-gutter-size) {
+    padding: 0 calc(#{fluid-size($max-gutter-size, $min-gutter-size)} / 2);
+
+    @media screen and (max-width: $container-min-width) {
+        padding: 0  calc(#{$min-gutter-size} / 2);
+    }
+
+    @media screen and (min-width: $container-max-width) {
+        padding: 0  calc(#{$max-gutter-size} / 2);
+    }
+
+}
+
+
+@mixin system-font($max-font-size, $min-font-size) {
+    font-size: #{fluid-size($max-font-size, $min-font-size)};
+
+    @media screen and (max-width: $container-min-width) {
+        font-size: $min-font-size;
+    }
+
+    @media screen and (min-width: $container-max-width) {
+        font-size: $max-font-size;
+    }
+
+}
+
+@mixin system-line-height($max-font-line-height, $min-font-line-height) {
+    line-height: #{fluid-size($max-font-line-height, $min-font-line-height)};
+
+    @media screen and (max-width: $container-min-width) {
+        line-height: $min-font-line-height;
+    }
+
+    @media screen and (min-width: $container-max-width) {
+        line-height: $max-font-line-height;
+    }
+
+}

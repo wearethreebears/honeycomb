@@ -1,0 +1,225 @@
+@import './config';
+@import './boot';
+
+$container-max-width: map-deep-get($options, 'grid', 'container', 'max-width') ;
+$container-min-width: map-deep-get($options, 'grid', 'container', 'min-width') ;
+
+$gutter-max-size: map-deep-get($options, 'grid', 'gutter', 'max-width');
+$gutter-min-size: map-deep-get($options, 'grid', 'gutter', 'min-width');
+
+@import './functions';
+@import './mixins';
+
+
+
+/*----------------------------------------------------------
+|
+|      FONTS
+|
+----------------------------------------------------------*/
+
+@each $name, $value in  map-deep-get($options, 'fonts') {
+
+    $font-family: map-deep-get($options, 'fonts', #{$name}, 'font-family');
+    $font-weight: map-deep-get($options, 'fonts', #{$name}, 'font-weight');
+    $font-max-size: map-deep-get($options, 'fonts', #{$name}, 'max-size');
+    $font-min-size: map-deep-get($options, 'fonts', #{$name}, 'min-size');
+    $font-max-line-height: map-deep-get($options, 'fonts', #{$name}, 'max-line-height');
+    $font-min-line-height: map-deep-get($options, 'fonts', #{$name}, 'min-line-height');
+
+    .font__#{$name} {
+        font-family: $font-family;
+        font-weight: $font-weight;
+        @include system-font($font-max-size, $font-min-size);
+        @include system-line-height($font-max-line-height, $font-min-line-height);
+    }
+
+}
+
+
+/*----------------------------------------------------------
+|
+|      GRID
+|
+----------------------------------------------------------*/
+
+body {
+    font-size: map-deep-get($options, 'root-size');
+    margin: 0;
+}
+
+.container {
+    margin: auto;
+    width: calc(100% - #{fluid-size($gutter-max-size, $gutter-min-size)});
+    max-width: $container-max-width;
+    min-width: $container-min-width;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.nested-row {
+    width: calc(100% + #{fluid-size($gutter-max-size, $gutter-min-size)});
+    margin-left: calc((#{fluid-size($gutter-max-size, $gutter-min-size)} / 2) * -1);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: $container-min-width) {
+    .nested-row {
+        margin-left: calc((#{$gutter-min-size} / 2) * -1);
+    }
+}
+
+@media screen and (min-width: $container-max-width) {
+    .nested-row {
+        margin-left: calc((#{$gutter-max-size} / 2) * -1);
+    }
+}
+
+%span {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: calc(100%);
+    @include system-fluid-gutter($gutter-max-size, $gutter-min-size);
+}
+
+.span-1 {
+    @extend %span;
+    width: 8.3333333333%;
+}
+
+.span-2 {
+    @extend %span;
+    width: 16.6666666666%;
+}
+
+.span-1-4,
+.span-3 {
+    @extend %span;
+    width: 25%;
+}
+
+.span-1-3,
+.span-4 {
+    @extend %span;
+    width: 33.3333333333%;
+}
+
+.span-5 {
+    @extend %span;
+    width:41.6666666666%;
+}
+
+.span-1-2,
+.span-6 {
+    @extend %span;
+    width: 50%;
+    
+}
+
+.span-7 {
+    @extend %span;
+    width: 58.3333333333%;
+}
+
+.span-2-3,
+.span {
+    @extend %span;
+    width: 66.6666666666%;
+}
+
+.span-3-4,
+.span-9 {
+    @extend %span;
+    width: 75%;
+}
+
+.span-10 {
+    @extend %span;
+    width:83.3333333333%;
+}
+
+.span-11 {
+    @extend %span;
+    width: 91.6666666666%;
+}
+
+.span {
+    @extend %span;
+    width:100%;
+}
+
+@each $name, $value in map-deep-get($options, 'grid', 'breakpoints') {
+
+    $prefix: map-deep-get($options, 'grid', 'breakpoints', #{$name}, 'prefix');
+    $breakpoint: map-deep-get($options, 'grid', 'breakpoints', #{$name}, 'min-width');
+
+    @media screen and (min-width: $breakpoint) {
+        .#{$prefix}\:span-1 {
+            width: 8.3333333333%;
+        }
+
+        .#{$prefix}\:span-2 {
+            width: 16.6666666666%;
+        }
+
+        .#{$prefix}\:span-1-4,
+        .#{$prefix}\:span-3 {
+            width: 25%;
+        }
+
+        .#{$prefix}\:span-1-3,
+        .#{$prefix}\:span-4 {
+            width: 33.3333333333%;
+        }
+
+        .#{$prefix}\:span-5 {
+            width:41.6666666666%;
+        }
+
+        .#{$prefix}\:span-1-2,
+        .#{$prefix}\:span-6 {
+            width: 50%;
+            
+        }
+
+        .#{$prefix}\:span-7 {
+            width: 58.3333333333%;
+        }
+
+        .#{$prefix}\:span-2-3,
+        .#{$prefix}\:span-8 {
+            width: 66.6666666666%;
+        }
+
+        .#{$prefix}\:span-3-4,
+        .#{$prefix}\:span-9 {
+            width: 75%;
+        }
+        .#{$prefix}\:span-10 {
+            width:83.3333333333%;
+        }
+
+        .#{$prefix}\:span-11 {
+            width: 91.6666666666%;
+        }
+
+        .#{$prefix}\:span {
+            width:100%;
+        }
+    }
+
+    .#{$prefix}\:span-* {
+        @include system-fluid-gutter($gutter-max-size, $gutter-min-size);
+    }
+    
+}
+
+
