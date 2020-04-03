@@ -1,5 +1,5 @@
 {
-  "name": "honeycomb",
+  "name": "@wearethreebears/honeycomb",
   "version": "1.0.0",
   "description": "A fully responsive, configurable scss framework. Layouts, gutters and fonts that respond to any screen size.",
   "main": "index.js",

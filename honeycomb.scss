@@ -1,4 +1,4 @@
-@import './config';
+@import './honeycomb.config';
 @import './boot';
 
 $container-max-width: map-deep-get($options, 'grid', 'container', 'max-width') ;
