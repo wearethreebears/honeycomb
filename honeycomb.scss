@@ -18,7 +18,7 @@ $gutter-min-size: map-deep-get($options, 'grid', 'gutter', 'min-width');
 |
 ----------------------------------------------------------*/
 
-@if (map-deep-get($options, 'build-font-classes') != false) {
+@if (map-deep-get($options, 'generate-font-classes') != false) {
     @each $name, $value in  map-deep-get($options, 'fonts') {
 
         .font__#{$name} {
