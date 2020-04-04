@@ -1,6 +1,6 @@
 {
   "name": "@wearethreebears/honeycomb",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A fully responsive, configurable scss framework. Layouts, gutters and fonts that respond to any screen size.",
   "main": "index.js",
   "scripts": {
