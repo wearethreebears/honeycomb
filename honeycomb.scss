@@ -18,22 +18,14 @@ $gutter-min-size: map-deep-get($options, 'grid', 'gutter', 'min-width');
 |
 ----------------------------------------------------------*/
 
-@each $name, $value in  map-deep-get($options, 'fonts') {
+@if (map-deep-get($options, 'build-font-classes') != false) {
+    @each $name, $value in  map-deep-get($options, 'fonts') {
 
-    $font-family: map-deep-get($options, 'fonts', #{$name}, 'font-family');
-    $font-weight: map-deep-get($options, 'fonts', #{$name}, 'font-weight');
-    $font-max-size: map-deep-get($options, 'fonts', #{$name}, 'max-size');
-    $font-min-size: map-deep-get($options, 'fonts', #{$name}, 'min-size');
-    $font-max-line-height: map-deep-get($options, 'fonts', #{$name}, 'max-line-height');
-    $font-min-line-height: map-deep-get($options, 'fonts', #{$name}, 'min-line-height');
+        .font__#{$name} {
+            @include font($name)
+        }
 
-    .font__#{$name} {
-        font-family: $font-family;
-        font-weight: $font-weight;
-        @include system-font($font-max-size, $font-min-size);
-        @include system-line-height($font-max-line-height, $font-min-line-height);
     }
-
 }
 
 
