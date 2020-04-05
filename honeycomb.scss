@@ -45,6 +45,9 @@ body {
     width: calc(100% - #{fluid-size($gutter-max-size, $gutter-min-size)});
     max-width: $container-max-width;
     min-width: $container-min-width;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .row {
