@@ -21,4 +21,4 @@ This is where the magic happens, set your grid variables, font variables and gut
 
 ## Documentation
 
-For full documentation visit the Honeycomb docs website: [https://honeycomb.wearethreebears.co.uk/]: https://honeycomb.wearethreebears.co.uk/
+For full documentation visit the Honeycomb docs website: https://honeycomb.wearethreebears.co.uk/
