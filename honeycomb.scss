@@ -58,8 +58,7 @@ body {
 }
 
 .nested-row {
-    width: calc(100% + #{fluid-size($gutter-max-size, $gutter-min-size)});
-    margin-left: calc((#{fluid-size($gutter-max-size, $gutter-min-size)} / 2) * -1);
+    @include system-nested-row-helper($gutter-max-size, $gutter-min-size);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -125,7 +124,7 @@ body {
 }
 
 .span-2-3,
-.span {
+.span-8 {
     @extend %span;
     width: 66.6666666666%;
 }
