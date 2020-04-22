@@ -86,7 +86,7 @@
     $max-size: map-deep-get($options, 'gutters', #{$name}, 'max-size');
     $min-size: map-deep-get($options, 'gutters', #{$name}, 'min-size');
 
-    #{$property}: fluid-size($max, $min);
+    #{$property}: fluid-size($max-size, $min-size);
 
     @media screen and (max-width: $container-min-width) {
         #{$property}: $min-size;
