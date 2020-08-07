@@ -110,9 +110,13 @@
     $font-min-size: map-deep-get($options, 'fonts', #{$name}, 'min-size');
     $font-max-line-height: map-deep-get($options, 'fonts', #{$name}, 'max-line-height');
     $font-min-line-height: map-deep-get($options, 'fonts', #{$name}, 'min-line-height');
+    
 
     font-family: $font-family;
     font-weight: $font-weight;
     @include system-font($font-max-size, $font-min-size);
     @include system-line-height($font-max-line-height, $font-min-line-height);
+    @if type-of(map-deep-get($options, 'fonts', #{$name}, 'transform') == 'string') {
+        text-transform: map-deep-get($options, 'fonts', #{$name}, 'transform');
+    }
 }

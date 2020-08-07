@@ -1,3 +1,5 @@
+@import '../../../honeycomb.config';
+
 /*----------------------------------------------------------
 |
 |      BOOT FUNCTIONS
@@ -29,3 +31,12 @@
 
   @return $number;
 }
+
+$container-max-width: map-deep-get($options, 'grid', 'container', 'max-width') ;
+$container-min-width: map-deep-get($options, 'grid', 'container', 'min-width') ;
+
+$gutter-max-size: map-deep-get($options, 'grid', 'gutter', 'max-width');
+$gutter-min-size: map-deep-get($options, 'grid', 'gutter', 'min-width');
+
+@import './functions';
+@import './mixins';
